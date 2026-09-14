@@ -1,1 +1,8 @@
+#dependencias node
 node_modules
+
+#carpeta construida
+proyecto
+
+#variables de entorno
+.env
