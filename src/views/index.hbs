@@ -1,10 +1,19 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            {{> productos/productoForm}}
-        </div>
-        <div class="col-md-7">
-            {{> productos/productoTabla}}
-        </div>
+  <div class="row">
+
+    <!-- PRODUCTOS -->
+    <div class="col-md-6">
+      {{> productos/productoForm}}
+
+      {{> productos/productoTabla}}
     </div>
+
+    <!-- CLIENTES -->
+    <div class="col-md-6">
+      {{> clientes/clienteForm}}
+
+      {{> clientes/clienteTabla}}
+    </div>
+
+  </div>
 </div>

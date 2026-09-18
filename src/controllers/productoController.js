@@ -8,8 +8,8 @@ export const renderProductos = async (req, res) => {
 export const createProductos = async (req, res) => {
   try {
     const productos = Productos(req.body);
-  await productos.save();
-  res.redirect("/");
+    await productos.save();
+    res.redirect("/");
   } catch (error) {
     console.log(error);
   }
@@ -18,28 +18,27 @@ export const createProductos = async (req, res) => {
 export const renderEditProducto = async (req, res) => {
   try {
     const productos = await Productos.findById(req.params.id).lean();
-    res.render("editar", {productos});
+    res.render("editar", { productos });
   } catch (error) {
     console.log(error.message);
   }
-  
 };
 
 export const updateProductos = async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   await Productos.findByIdAndUpdate(id, req.body);
 
   res.redirect("/");
 };
 
-export const deleteProdctos = async (req, res) => {
-  const {id} = req.params;
+export const deleteProductos = async (req, res) => {
+  const { id } = req.params;
   await Productos.findByIdAndDelete(id);
   res.redirect("/");
 };
 
 export const statusProductos = async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   const productos = await Productos.findById(id);
   //mando a traer mi propiedad opcion que esta en el modelo
   productos.opcion = !productos.opcion;

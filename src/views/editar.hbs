@@ -1,44 +1,152 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5 offset-md-3">
-      <div class="card card-body bg-dark p-4 text-white">
-        <h4>Actualiza producto</h4>
-        <form action="/productos/{{productos._id}}/update" method="POST">
-          <div>
-            <label for="nombre">Modifica producto:</label>
-            <input
-              type="text"
-              name="nombre"
-              placeholder="Name"
-              value="{{productos.nombre}}"
-              class="form-control bg-dark text-white"
-            />
-          </div>
-          <div>
-            <label for="descripcion">Modifica descripcion:</label>
-            <textarea
-              name="descripcion"
-              cols="30"
-              rows="3"
-              placeholder="Descripcion"
-              class="form-control bg-dark text-white"
-            >
-              {{productos.descripcion}}
-            </textarea>
-          </div>
-          <div>
-            <label for="precio">Modifica precio:</label>
-            <input
-              type="text"
-              name="precio"
-              placeholder="Price"
-              value="{{productos.precio}}"
-              class="form-control bg-dark text-white"
-            />
-          </div>
-          <button class="btn btn-info">Actualizar</button>
-        </form>
-      </div>
+
+      {{#if productos}}
+
+        <!-- EDITAR PRODUCTO -->
+        <div class="card card-body bg-dark p-4 text-white">
+
+          <h4>Actualiza producto</h4>
+
+          <form action="/productos/{{productos._id}}/update" method="POST">
+
+            <div>
+              <label for="nombre">Modifica producto:</label>
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Name"
+                value="{{productos.nombre}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <div>
+              <label for="descripcion">Modifica descripcion:</label>
+              <textarea
+                name="descripcion"
+                cols="30"
+                rows="3"
+                placeholder="Descripcion"
+                class="form-control bg-dark text-white"
+              >{{productos.descripcion}}</textarea>
+            </div>
+
+            <div>
+              <label for="precio">Modifica precio:</label>
+              <input
+                type="text"
+                name="precio"
+                placeholder="Price"
+                value="{{productos.precio}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <button class="btn btn-info mt-2">
+              Actualizar
+            </button>
+
+          </form>
+
+        </div>
+
+      {{else}}
+
+        <!-- EDITAR CLIENTE -->
+        <div class="card card-body bg-dark p-4 text-white">
+
+          <h4>Actualiza cliente</h4>
+
+          <form action="/clientes/{{clientes._id}}/update" method="POST">
+
+            <div>
+              <label for="nombre">Modifica nombre:</label>
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre"
+                value="{{clientes.nombre}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <div>
+              <label for="apellido">Modifica apellido:</label>
+              <input
+                type="text"
+                name="apellido"
+                placeholder="Apellido"
+                value="{{clientes.apellido}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <div>
+              <label for="correo">Modifica correo:</label>
+              <input
+                type="email"
+                name="correo"
+                placeholder="Correo"
+                value="{{clientes.correo}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <div>
+              <label for="telefono">Modifica teléfono:</label>
+              <input
+                type="text"
+                name="telefono"
+                placeholder="Teléfono"
+                value="{{clientes.telefono}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <div>
+              <label for="direccion">Modifica dirección:</label>
+              <input
+                type="text"
+                name="direccion"
+                placeholder="Dirección"
+                value="{{clientes.direccion}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <div>
+              <label for="edad">Modifica edad:</label>
+              <input
+                type="number"
+                name="edad"
+                placeholder="Edad"
+                value="{{clientes.edad}}"
+                class="form-control bg-dark text-white"
+              />
+            </div>
+
+            <div class="mt-2">
+              <label for="activo">Activo:</label>
+              <input
+                type="checkbox"
+                name="activo"
+                value="true"
+                {{#if clientes.activo}}checked{{/if}}
+              />
+            </div>
+
+            <button class="btn btn-info mt-2">
+              Actualizar
+            </button>
+
+          </form>
+
+        </div>
+
+      {{/if}}
+
     </div>
   </div>
 </div>

@@ -1,38 +1,53 @@
-{{#if productos}}
+{{#if clientes}}
 
   <table class="table table-bordered table-hover table-dark">
     <thead>
       <tr class="text-center">
         <th>Num.</th>
         <th>Nombre</th>
-        <th>Descripcion</th>
-        <th>Precio</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Dirección</th>
+        <th>Edad</th>
+        <th>Estado</th>
         <th>Acciones</th>
       </tr>
     </thead>
+
     <tbody>
-      {{#each productos}}
+      {{#each clientes}}
         <tr>
           <td>{{@index}}</td>
           <td>{{nombre}}</td>
-          <td>{{descripcion}}</td>
-          <td>{{precio}}</td>
+          <td>{{apellido}}</td>
+          <td>{{correo}}</td>
+          <td>{{telefono}}</td>
+          <td>{{direccion}}</td>
+          <td>{{edad}}</td>
+
           <td>
-            {{#if opcion}}
-              <a href="/productos/{{_id}}/status" class="btn btn-warning">No
-                disponible</a>
+            {{#if activo}}
+              <a
+                href="/clientes/{{_id}}/status"
+                class="btn btn-success"
+              >Activo</a>
             {{else}}
               <a
-                href="/productos/{{_id}}/status"
-                class="btn btn-success"
-              >Disponible</a>
+                href="/clientes/{{_id}}/status"
+                class="btn btn-warning"
+              >Inactivo</a>
             {{/if}}
+          </td>
+
+          <td>
             <a
-              href="/productos/{{_id}}/update"
+              href="/clientes/{{_id}}/update"
               class="btn btn-info"
             >Actualizar</a>
+
             <a
-              href="/productos/{{_id}}/delete"
+              href="/clientes/{{_id}}/delete"
               class="btn btn-danger"
             >Eliminar</a>
           </td>
@@ -40,11 +55,14 @@
       {{/each}}
     </tbody>
   </table>
+
 {{else}}
+
   <div class="h-100 d-flex align-items-center justify-content-center">
     <div class="text-center text-white">
-      <h1>No hay productos</h1>
+      <h1>No hay clientes</h1>
       <img src="/icons/teletubis.jpeg" class="w-75" />
     </div>
   </div>
+
 {{/if}}
